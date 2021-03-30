@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ```
 
 ## Running the API locally
-Execute the following bash command from the project root folder to start the API server on `localhost:5000/api/`. Note you need to have Python and all dependencies installed first.
+Execute the following bash command from the project root folder to start the API server on `localhost:8000/api/`. Note you need to have Python and all dependencies installed first.
 ```bash
 python appserver.py
 ```
