@@ -2,6 +2,7 @@
 """
     config.py
     - settings for the flask application object
+    -place inside FaceMaskCheckApp/api/facemaskdetect
 """
 
 class BaseConfig(object):
