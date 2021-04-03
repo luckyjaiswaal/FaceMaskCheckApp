@@ -1,14 +1,26 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Home} from '../pages/Home'
+import { Signin } from '../pages/Signin'
+import { Signup } from '../pages/Signup'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'mdbreact/dist/css/mdb.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Face Mask Check Application build in progress....</h1>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+
+              <Switch>
+                <Route path="/" exact component={() => <Home />} />
+                <Route path="/Signup" exact component={Signup} />
+                <Route path="/SignIn" exact component={() => <Signin />} />
+      
+              </Switch>
+
+        </Router>
+    )
 }
 
-export default App;
+export default App

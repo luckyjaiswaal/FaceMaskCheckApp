@@ -17,6 +17,36 @@ class Signin extends Component {
     }
   }
 
+  handleChangeName = async event => {
+    const email = event.target.value;
+    this.setState({email})
+  }
+
+  handleChangePassword = async event => {
+    const password = event.target.value;
+    this.setState({password})
+  }
+
+  handleSignin = async event => {
+    event.preventDefault();
+    const {email, password} = this.state
+    if (email !== '' && password !== '') {
+      await api.login({email, password}).then(res => {
+        console.log(res)
+
+        if(res.status === 200){
+              this.setState({msg:'Succesfull Login!'})
+
+              localStorage.setItem("Token","Logged in")
+             this.props.history.push('/Dashboard')
+        }
+      }, error => {
+        console.log(error)
+        window.alert('Email or Password is wrong.')
+      })
+    }
+  }
+
   render(){
     return (
       <div className="signin">
@@ -56,4 +86,4 @@ class Signin extends Component {
 
 }
 
-export default withRouter(Signin);
+export {Signin};

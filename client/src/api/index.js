@@ -1,17 +1,15 @@
-// This file will be used to store all the function doing api calls
-// All th backend calling should be registered here
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:4000/api', // the url will be updated to server url
+    baseURL: 'http://localhost:8000/api',
 })
 
-// Example below
-// export const functionName = data => api.post(`/exposed backend api url`, data)
+export const addUserToDatabase = user => api.post(`/register`, user)
+export const login = loginDetails => api.post('/login', loginDetails)
 
 const apis = {
-  // api function
-  // functionName
+    addUserToDatabase,
+    login,
 }
 
 export default apis
