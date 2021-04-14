@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import '../style/style.css';
-import api from '../api'
-import { withRouter } from "react-router-dom";
+import api from '../api';
+
 
 import { Link } from 'react-router-dom'
 
@@ -12,8 +12,7 @@ class Signin extends Component {
     this.state = {
       email: '',
       password: '',
-      msg: '',
-      //fullname: ''
+      msg: ''
     }
   }
 
