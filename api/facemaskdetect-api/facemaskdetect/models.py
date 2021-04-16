@@ -77,6 +77,16 @@ class User(db.Model):
         }
 
 
+class Defaulter(db.Model):
+    __tablename__ = 'defaulter'
+
+    student_id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    snapshot_id = db.Column(db.Integer)
+
+    def __init__(self, student_id, timestamp, snapshot_id):
+        self.student_id = student_id
+        self.snapshot_id = snapshot_id
 
 
 
