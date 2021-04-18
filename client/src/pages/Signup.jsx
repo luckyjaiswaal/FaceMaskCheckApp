@@ -11,9 +11,11 @@ class Signup extends Component {
   constructor(props){
     super(props)
     this.state = {
+      student_id: 1144231422,
+      email: '',
+      is_authority: 1,
       first_name: '',
       last_name: '',
-      email: '',
       password: '',
       isLoading: false,
     }
@@ -43,10 +45,10 @@ class Signup extends Component {
 
   handleRegisterUser = async event => {
     event.preventDefault();
-    const {first_name,last_name, email, password} = this.state
+    const {student_id, is_authority, email, first_name, last_name, password} = this.state
     // Add in validation here
     if (first_name !== '' && last_name !== '' && email !== '' && password !== ''){
-      await api.addUserToDatabase({first_name, last_name, email, password}).then(res => {
+      await api.addUserToDatabase({student_id, is_authority, email, first_name, last_name, password}).then(res => {
         // Do whatever you want to do whether its a page redirect etc.
 
         console.log(res)
