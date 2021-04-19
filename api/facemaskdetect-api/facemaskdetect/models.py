@@ -21,8 +21,6 @@ required_fields = {'users':['is_authority' 'first_name', 'last_name', 'password'
 class User(db.Model):
     __tablename__ = 'users'
 
-    
-    is_authority = db.Column(db.Integer)
     first_name = db.Column(db.String(191), nullable=False)
     last_name = db.Column(db.String(191), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False, primary_key=True)
@@ -31,8 +29,7 @@ class User(db.Model):
     updated_date = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-    def __init__(self, is_authority, first_name, last_name, email, password):
-        self.is_authority = is_authority
+    def __init__(self, first_name, last_name, email, password):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
@@ -70,8 +67,7 @@ class User(db.Model):
         return {
             'email':self.email,
             'first_name': self.first_name,
-            'last_name': self.last_name,
-            'is_authority': self.is_authority
+            'last_name': self.last_name
         }
 
 
