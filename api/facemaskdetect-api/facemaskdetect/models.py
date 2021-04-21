@@ -77,6 +77,33 @@ class User(db.Model):
             'last_name': self.last_name
         }
 
+class Venue(db.Model):
+    __tablename__ = 'venues'
+
+    venue_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id', ondelete='CASCADE')) 
+    venue_name = db.Column(db.String(255), nullable=False)
+    venue_capacity = db.Column(db.String(255), nullable=False)
+    authority_name = db.Column(db.String(255), nullable=False)
+    authority_contact = db.Column(db.String(255), nullable=False)
+    auth_code = db.Column(db.String(255), nullable=False)
+
+
+    def __init__(self, user_id, venue_name, venue_capacity, authority_name, authority_contact, auth_code):
+        self.user_id = user_id
+        self.venue_name = venue_name
+        self.venue_capacity = venue_capacity
+        self.authority_name = authority_name
+        self.authority_contact = authority_contact
+        self.auth_code = auth_code
+
+    def columns_to_dict(self):
+        dict_ = {}
+        for key in self.__mapper__.c.keys():
+            dict_[key] = getattr(self, key)
+        return dict_
+
+
 
 
 
