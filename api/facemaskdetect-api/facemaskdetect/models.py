@@ -20,10 +20,10 @@ required_fields = {'users':['is_authority' 'first_name', 'last_name', 'password'
 
 class User(db.Model):
     __tablename__ = 'users'
-
+    user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     first_name = db.Column(db.String(191), nullable=False)
     last_name = db.Column(db.String(191), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     updated_date = db.Column(db.DateTime, default=datetime.utcnow)
@@ -34,7 +34,14 @@ class User(db.Model):
         self.last_name = last_name
         self.email = email
         self.password = generate_password_hash(password, method='sha256')
-    
+
+    def to_dict(self):
+        return {
+            'user_id':self.user_id,
+            'email':self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name
+        }
     
     @classmethod
     def authenticate(cls, **kwargs):
