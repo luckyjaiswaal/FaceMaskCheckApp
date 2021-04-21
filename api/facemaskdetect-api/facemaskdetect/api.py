@@ -40,7 +40,7 @@ def register():
     except exc.IntegrityError as e:
         print(e)
         db.session.rollback()
-        return jsonify({ 'message': 'User with id {} exists.'.format(data['student_id']) }), 409
+        return jsonify({ 'message': 'User with email {} exists.'.format(data['email']) }), 409
     except exc.SQLAlchemyError as e:
         db.session.rollback()
         return jsonify({ 'message': e.args }), 500
@@ -61,7 +61,7 @@ def login():
         {
         'exp': datetime.now() + timedelta(minutes=90),
         'iat': datetime.now(),
-        'sub': user.student_id
+        'sub': user.email
         },
         current_app.config['SECRET_KEY'],
         algorithm='HS256')
@@ -92,7 +92,7 @@ def token_required(f):
         try:
             token = auth_headers[1]
             data = jwt.decode(token, current_app.config['SECRET_KEY'])
-            user = User.query.filter_by(student_id=data['sub']).first()
+            user = User.query.filter_by(email=data['sub']).first()
             if not user:
                 raise RuntimeError('User not found')
             return f(user, *args, **kwargs)
