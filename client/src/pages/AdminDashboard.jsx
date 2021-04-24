@@ -11,11 +11,15 @@ class AdminDashboard extends Component {
   constructor(props){
     super(props)
     this.state = {
+      user_id: "1",
+      venueData : [],
       isLoading: false,
     }
   }
 
-
+getVenuesData(){
+  api.getVenues
+}
 
   render(){
     return (
