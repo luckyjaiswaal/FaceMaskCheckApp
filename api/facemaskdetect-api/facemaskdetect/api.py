@@ -11,6 +11,7 @@ from sqlalchemy import exc
 from functools import wraps
 from .models import db, User, Venue, required_fields
 from .services.misc import pre_init_check, MissingModelFields, datetime_to_str, parse_datetime
+from .services.fmaskdetect.detectimage import facemask_detect
 import jwt
 
 api = Blueprint('api', __name__)
@@ -53,6 +54,8 @@ def login():
     """
     data = request.get_json()
     user = User.authenticate(**data)
+    user_send = user.to_dict()
+    print(user_send['user_id'])
 
     if not user:
         return jsonify({ 'message': 'Invalid credentials', 'authenticated': False }), 401
@@ -79,6 +82,7 @@ def add_venue():
         data = request.get_json()
         #pre_init_check(required_fields['users'], **data)
         venue = Venue(**data)
+        print(venue.authority_contact)
         db.session.add(venue)
         db.session.commit()
         return jsonify({'message': 'Venue added'}), 201

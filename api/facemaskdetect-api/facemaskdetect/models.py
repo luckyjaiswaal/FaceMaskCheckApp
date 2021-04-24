@@ -72,6 +72,7 @@ class User(db.Model):
 
     def to_dict(self):
         return {
+            'user_id': self.user_id,
             'email':self.email,
             'first_name': self.first_name,
             'last_name': self.last_name
@@ -104,7 +105,29 @@ class Venue(db.Model):
         return dict_
 
 
+class CheckIn(db.Model):
+    __tablename__ = 'checkins'
 
+    checkin_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    venue_id = db.Column(db.Integer, db.ForeignKey('venues.venue_id', ondelete='CASCADE')) 
+    face_mask = db.Column(db.String(255), nullable=False)
+    visitor_name = db.Column(db.String(255), nullable=False)
+    visitor_temp = db.Column(db.String(255), nullable=False)
+    checkin_time = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+    def __init__(self, checkin_id, venue_id, face_mask, visitor_name, visitor_temp):
+        self.checkin_id = checkin_id
+        self.venue_id = venue_id
+        self.face_mask = face_mask
+        self.visitor_name = visitor_name
+        self.visitor_temp = visitor_temp
+
+    def columns_to_dict(self):
+        dict_ = {}
+        for key in self.__mapper__.c.keys():
+            dict_[key] = getattr(self, key)
+        return dict_
 
 
 
