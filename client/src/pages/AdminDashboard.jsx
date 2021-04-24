@@ -11,14 +11,18 @@ class AdminDashboard extends Component {
   constructor(props){
     super(props)
     this.state = {
-      user_id: "1",
+      user_id: "2",
       venueData : [],
       isLoading: false,
     }
   }
 
 getVenuesData(){
-  api.getVenues
+  const {user_id} = this.state
+  api.getVenues({user_id}).then(res =>{
+    this.setState({venueData: res.data})
+    window.alert(res.data.venue_list[0].venue_name)
+  })
 }
 
   render(){
@@ -26,6 +30,7 @@ getVenuesData(){
       <div className="AdminDashboard">
         <div className="container">
           <h1>Admin Dashboard</h1>
+    
         </div>
       </div>
     );

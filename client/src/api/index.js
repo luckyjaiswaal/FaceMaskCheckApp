@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const addUserToDatabase = user => api.post(`/register`, user);
 export const login = loginDetails => api.post('/login', loginDetails);
-export const getVenues = (user_id) => api.get(`/venue/get/${user_id}`);
+export const getVenues = user_id => api.post('/venue/get', user_id);
 
 const apis = {
     addUserToDatabase,

@@ -11,7 +11,7 @@ from sqlalchemy import exc
 from functools import wraps
 from .models import db, User, Venue, required_fields
 from .services.misc import pre_init_check, MissingModelFields, datetime_to_str, parse_datetime
-from .services.fmaskdetect.detectimage import facemask_detect
+#from .services.fmaskdetect.detectimage import facemask_detect
 import jwt
 
 api = Blueprint('api', __name__)
@@ -59,7 +59,7 @@ def login():
 
     if not user:
         return jsonify({ 'message': 'Invalid credentials', 'authenticated': False }), 401
-    
+
     token = jwt.encode(
         {
         'exp': datetime.now() + timedelta(minutes=90),
@@ -96,7 +96,7 @@ def add_venue():
         db.session.rollback()
         return jsonify({ 'message': e.args }), 500
 
-@api.route('venue/get', methods=('GET',))
+@api.route('venue/get', methods=('POST',))
 def get_venue_list():
     """
     Create new chat chatroom between two users
