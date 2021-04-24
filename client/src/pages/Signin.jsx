@@ -35,7 +35,7 @@ class Signin extends Component {
     if (email !== '' && password !== '') {
       await api.login({email, password}).then(res => {
         if(res.status === 200){
-            //  this.setState({msg:'Succesfull Login!'})
+             this.setState({msg:'Succesfull Login!'})
              this.props.history.push('/Signup')
         }
       }, error => {
