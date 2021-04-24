@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import '../style/style.css';
-import api from '../api';
-
+import signup from '../components/facemaskcheck.jpg'
+import { withRouter } from "react-router-dom";
+import api from '../api'
 
 import { Link } from 'react-router-dom'
+import { Component } from "react";
 
 class Signin extends Component {
 
@@ -12,7 +14,8 @@ class Signin extends Component {
     this.state = {
       email: '',
       password: '',
-      msg: ''
+      msg: '',
+      isLoading: false,
     }
   }
 
@@ -31,13 +34,9 @@ class Signin extends Component {
     const {email, password} = this.state
     if (email !== '' && password !== '') {
       await api.login({email, password}).then(res => {
-        console.log(res)
-
         if(res.status === 200){
-              this.setState({msg:'Succesfull Login!'})
-
-              localStorage.setItem("Token","Logged in")
-             this.props.history.push('/Dashboard')
+            //  this.setState({msg:'Succesfull Login!'})
+             this.props.history.push('/Signup')
         }
       }, error => {
         console.log(error)
@@ -84,5 +83,4 @@ class Signin extends Component {
   }
 
 }
-
-export {Signin};
+export default withRouter(Signin);
