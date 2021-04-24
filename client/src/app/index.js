@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import FooterPage from '../components/Footer'
 import { Home} from '../pages/Home'
 import Signin  from '../pages/Signin'
 import Signup  from '../pages/Signup'
@@ -18,7 +19,7 @@ function App() {
                 <Route path="/SignIn" exact component={Signin} />
 
               </Switch>
-
+          <FooterPage/>
         </Router>
     )
 }
