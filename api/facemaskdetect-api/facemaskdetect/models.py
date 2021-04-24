@@ -105,23 +105,29 @@ class Venue(db.Model):
         return dict_
 
 
-class CheckIn(db.Model):
-    __tablename__ = 'checkins'
+class Visitor(db.Model):
+    __tablename__ = 'visitors'
 
-    checkin_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    v_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     venue_id = db.Column(db.Integer, db.ForeignKey('venues.venue_id', ondelete='CASCADE')) 
-    face_mask = db.Column(db.String(255), nullable=False)
+    facemask_check = db.Column(db.Integer, nullable=False)
     visitor_name = db.Column(db.String(255), nullable=False)
-    visitor_temp = db.Column(db.String(255), nullable=False)
-    checkin_time = db.Column(db.DateTime, default=datetime.utcnow)
+    visitor_id = db.Column(db.Integer, nullable=False)
+    visitor_temp = db.Column(db.Numeric, nullable=False)
+    temp_check = db.Column(db.Integer, nullable=False)
+    check_in = db.Column(db.Integer, nullable=False )
+    visit_time = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-    def __init__(self, checkin_id, venue_id, face_mask, visitor_name, visitor_temp):
-        self.checkin_id = checkin_id
+    def __init__(self, venue_id, facemask_check, visitor_name, visitor_id, visitor_temp, temp_check, check_in):
+
         self.venue_id = venue_id
-        self.face_mask = face_mask
+        self.facemask_check = facemask_check
         self.visitor_name = visitor_name
+        self.visitor_id = visitor_id
         self.visitor_temp = visitor_temp
+        self.temp_check = temp_check
+        self.check_in = check_in
 
     def columns_to_dict(self):
         dict_ = {}
