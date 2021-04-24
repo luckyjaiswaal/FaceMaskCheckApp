@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import FooterPage from '../components/Footer'
+import NavBar from '../components/NavBar'
 import { Home} from '../pages/Home'
 import Signin  from '../pages/Signin'
 import Signup  from '../pages/Signup'
@@ -12,7 +13,7 @@ import 'mdbreact/dist/css/mdb.css'
 function App() {
     return (
         <Router>
-
+          <NavBar/>
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/Signup" exact component={Signup} />

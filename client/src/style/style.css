@@ -15,6 +15,16 @@ body{
   text-align: center;
 }
 
+.navbarMain {
+  font-family: helvetica;
+  font-weight: 800;
+  font-size: 22px ;
+  background: #008080;
+  height: 70px;
+  text-decoration-color: white;
+  text-align: center;
+
+}
 .signup .col-lg-5 {
   width: 200px;
 }
