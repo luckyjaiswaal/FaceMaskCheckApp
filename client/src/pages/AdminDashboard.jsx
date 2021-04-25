@@ -52,11 +52,13 @@ renderVenues(){
     return (
       <div className="AdminDashboard">
         <div className="container">
-          <h1>Admin Dashboard</h1>
+          <h1 >Admin Dashboard</h1>
+            <div className ="test"><button className="" style={{ backgroundColor:'#008080', width:'200px',height:'40px', color:'white', border:'none' }}>
+              Add Venue
+            </button></div>
           <div>
           <h1>Venue List</h1>
           <div className = "venue">
-
             {this.renderVenues()}
           </div>
           </div>

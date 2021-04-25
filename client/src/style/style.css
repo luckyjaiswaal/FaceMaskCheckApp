@@ -20,7 +20,12 @@ body{
   right:0;
 
 }
-
+.test{
+  border-color: black;
+  font-family: helvetica;
+  font-weight: 800;
+  font-size: 22px ;
+}
 .venue{
   display: flex;
   flex-direction: row;
