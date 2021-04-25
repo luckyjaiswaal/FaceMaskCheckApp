@@ -20,14 +20,12 @@ class AdminDashboard extends Component {
     }
   }
 
-getVenuesData(){
-
+componentDidMount(){
   const {user_id} = this.state
   api.getVenues({user_id}).then(res =>{
     this.setState({venueData: res.data.venue_list})
   //  window.alert(res.data.venue_list[0].venue_name)
   })
-
 }
 
 
@@ -58,7 +56,7 @@ renderVenues(){
           <div>
           <h1>Venue List</h1>
           <div className = "venue">
-            {this.getVenuesData()}
+
             {this.renderVenues()}
           </div>
           </div>
