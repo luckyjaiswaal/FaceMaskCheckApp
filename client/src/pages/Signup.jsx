@@ -7,13 +7,11 @@ import api from '../api'
 import { Link } from 'react-router-dom'
 import { Component } from "react";
 
-class Signup extends Component {
+ class Signup extends Component {
   constructor(props){
     super(props)
     this.state = {
-      student_id: 1144231422,
       email: '',
-      is_authority: 1,
       first_name: '',
       last_name: '',
       password: '',
@@ -45,10 +43,10 @@ class Signup extends Component {
 
   handleRegisterUser = async event => {
     event.preventDefault();
-    const {student_id, is_authority, email, first_name, last_name, password} = this.state
+    const { email, first_name, last_name, password} = this.state
     // Add in validation here
     if (first_name !== '' && last_name !== '' && email !== '' && password !== ''){
-      await api.addUserToDatabase({student_id, is_authority, email, first_name, last_name, password}).then(res => {
+      await api.addUserToDatabase({ email, first_name, last_name, password}).then(res => {
         // Do whatever you want to do whether its a page redirect etc.
 
         console.log(res)
@@ -106,5 +104,4 @@ class Signup extends Component {
 
 }
 
-
-export {Signup};
+export default withRouter(Signup);
