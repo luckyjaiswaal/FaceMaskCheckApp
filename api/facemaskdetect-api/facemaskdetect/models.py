@@ -72,13 +72,69 @@ class User(db.Model):
 
     def to_dict(self):
         return {
+
             'user_id' : self.user_id,
             'email':self.email,
             'first_name': self.first_name,
             'last_name': self.last_name
         }
 
+class Venue(db.Model):
+    __tablename__ = 'venues'
 
+    venue_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id', ondelete='CASCADE')) 
+    venue_name = db.Column(db.String(255), nullable=False)
+    venue_capacity = db.Column(db.String(255), nullable=False)
+    authority_name = db.Column(db.String(255), nullable=False)
+    authority_contact = db.Column(db.String(255), nullable=False)
+    auth_code = db.Column(db.String(255), nullable=False)
+
+
+    def __init__(self, user_id, venue_name, venue_capacity, authority_name, authority_contact, auth_code):
+        self.user_id = user_id
+        self.venue_name = venue_name
+        self.venue_capacity = venue_capacity
+        self.authority_name = authority_name
+        self.authority_contact = authority_contact
+        self.auth_code = auth_code
+
+    def columns_to_dict(self):
+        dict_ = {}
+        for key in self.__mapper__.c.keys():
+            dict_[key] = getattr(self, key)
+        return dict_
+
+
+class Visitor(db.Model):
+    __tablename__ = 'visitors'
+
+    v_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    venue_id = db.Column(db.Integer, db.ForeignKey('venues.venue_id', ondelete='CASCADE')) 
+    facemask_check = db.Column(db.Integer, nullable=False)
+    visitor_name = db.Column(db.String(255), nullable=False)
+    visitor_id = db.Column(db.Integer, nullable=False)
+    visitor_temp = db.Column(db.Numeric, nullable=False)
+    temp_check = db.Column(db.Integer, nullable=False)
+    check_in = db.Column(db.Integer, nullable=False )
+    visit_time = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+    def __init__(self, venue_id, facemask_check, visitor_name, visitor_id, visitor_temp, temp_check, check_in):
+
+        self.venue_id = venue_id
+        self.facemask_check = facemask_check
+        self.visitor_name = visitor_name
+        self.visitor_id = visitor_id
+        self.visitor_temp = visitor_temp
+        self.temp_check = temp_check
+        self.check_in = check_in
+
+    def columns_to_dict(self):
+        dict_ = {}
+        for key in self.__mapper__.c.keys():
+            dict_[key] = getattr(self, key)
+        return dict_
 
 
 
