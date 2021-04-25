@@ -22,14 +22,17 @@ class VenueDashboard extends Component {
    };
 
    capture = () => {
-     this.setState({image_string: this.webcam.getScreenshot()})
+     this.setState({image_string: this.webcam.getScreenshot().split(',')[1]})
+     const {image_string} = this.state
+     window.alert(image_string)
+
    };
 
 
   render(){
     const videoConstraints = {
-          width: 1580,
-          height: 920,
+          width: 1280,
+          height: 720,
           facingMode: "user"
         };
     return (
@@ -39,17 +42,17 @@ class VenueDashboard extends Component {
           <div>
           <h1>Venue List</h1>
           <div className = "">
-          <div>
-      <Webcam
-        audio={false}
-        height={350}
-        ref={this.setRef}
-        screenshotFormat="image/jpeg"
-        width={350}
-        videoConstraints={videoConstraints}
-      />
-      <button onClick={this.capture}>Capture photo</button>
-    </div>
+                <div>
+              <Webcam
+                audio={false}
+                height={350}
+                ref={this.setRef}
+                screenshotFormat="image/jpeg"
+                width={350}
+                videoConstraints={videoConstraints}
+              />
+              <button onClick={this.capture}>Capture photo</button>
+          </div>
           </div>
           </div>
         </div>
