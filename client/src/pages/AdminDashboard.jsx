@@ -33,7 +33,7 @@ renderVenues(){
   return this.state.venueData.map((venue, index) => {
     const {venue_name, venue_id, authority_name, venue_capacity} = venue
     return(
-      <Card className ="test" key={venue_id} style={{ width: '18rem'}}>
+      <Card className ="test" key={venue_id} style={{ width: '18rem'}} onClick={() =>this.props.history.push('/VenueDashboard')}>
       <Card.Img variant="top" src={cardImg} />
         <Card.Body>
           <Card.Title>{venue_name}</Card.Title>
