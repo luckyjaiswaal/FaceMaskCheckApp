@@ -16,6 +16,7 @@ class VenueDashboard extends Component {
       visitor_id: 99,
       venue_id: localStorage.getItem('venue_id'),
       image_string: "",
+      result: [],
       isLoading: false,
     }
   }
@@ -28,8 +29,11 @@ class VenueDashboard extends Component {
      this.setState({image_string: this.webcam.getScreenshot().split(',')[1]})
      const {visitor_name, visitor_id, venue_id,image_string} = this.state
      const visitor_info = [{visitor_name, visitor_id, venue_id},{image_string}]
-     //window.alert(visitor_info[1].image_string)
-
+     api.checkIn({visitor_info}).then(res =>{
+       this.setState({result: res.data})
+       //console.log(image_string)
+     })
+     
    };
 
   render(){
