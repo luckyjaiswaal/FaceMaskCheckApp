@@ -31,9 +31,9 @@ class VenueDashboard extends Component {
      const visitor_info = [{visitor_name, visitor_id, venue_id},{image_string}]
      api.checkIn({visitor_info}).then(res =>{
        this.setState({result: res.data})
-       //console.log(image_string)
+       console.log(res.data)
      })
-     
+
    };
 
   render(){
