@@ -28,7 +28,6 @@ class VenueDashboard extends Component {
 
    };
 
-
   render(){
     const videoConstraints = {
           width: 1280,
@@ -45,10 +44,10 @@ class VenueDashboard extends Component {
                 <div>
               <Webcam
                 audio={false}
-                height={350}
+                height={450}
                 ref={this.setRef}
                 screenshotFormat="image/jpeg"
-                width={350}
+                width={650}
                 videoConstraints={videoConstraints}
               />
               <button onClick={this.capture}>Capture photo</button>
