@@ -8,7 +8,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 from facemaskdetect.application import create_app
-from facemaskdetect.models import db, User, Venue
+from facemaskdetect.models import db, User, Venue,  Visitor
 
 app = create_app()
 
@@ -24,7 +24,8 @@ def shell_ctx():
     return dict(app=app,
                 db=db,
                 User=User,
-                Venue=Venue
+                Venue=Venue,
+                Visitor=Visitor
                )
 
 if __name__ == '__main__':
