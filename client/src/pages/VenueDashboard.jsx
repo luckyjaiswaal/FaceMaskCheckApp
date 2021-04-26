@@ -43,11 +43,9 @@ class VenueDashboard extends Component {
           facingMode: "user"
         };
     return (
-      <div className="VenueDashboard">
-        <div className="container">
-          <h1>Venue Dashboard</h1>
+      <div className="VenueDashboard row">
+        <div className="column" key = "column2">
           <div>
-          <h1>Venue List</h1>
           <div className = "">
                 <div>
               <Webcam
@@ -58,10 +56,29 @@ class VenueDashboard extends Component {
                 width={650}
                 videoConstraints={videoConstraints}
               />
-              <button onClick={this.capture}>Capture photo</button>
+              <center><button id="capture" className="" style={{ backgroundColor:'#008080', width:'200px',height:'40px', color:'white', border:'none' }} onClick={this.capture}>Capture</button></center>
           </div>
           </div>
           </div>
+        </div>
+
+        <div className = "column" key = "column3">
+        <div className="" key = "checkinName">
+          <label>Your Name</label>
+          <input className="form-control" placeholder="Enter your name"></input>
+        </div>
+        <div className="" key = "checkinID">
+          <label>Your ID</label>
+          <input className="form-control" placeholder="Enter your ID"></input>
+        </div>
+        <div className="" key = "checkinName">
+          <label>Temperature Detected</label>
+          <input className="form-control"></input>
+        </div>
+        <div className="" key = "checkinID">
+          <label>Mask Detected</label>
+          <input className="form-control"></input>
+        </div>
         </div>
       </div>
     );
