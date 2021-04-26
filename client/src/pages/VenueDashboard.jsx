@@ -12,6 +12,9 @@ class VenueDashboard extends Component {
   constructor(props){
     super(props)
     this.state = {
+      visitor_name: "Test Name",
+      visitor_id: 99,
+      venue_id: localStorage.getItem('venue_id'),
       image_string: "",
       isLoading: false,
     }
@@ -23,8 +26,9 @@ class VenueDashboard extends Component {
 
    capture = () => {
      this.setState({image_string: this.webcam.getScreenshot().split(',')[1]})
-     const {image_string} = this.state
-     window.alert(image_string)
+     const {visitor_name, visitor_id, venue_id,image_string} = this.state
+     const visitor_info = [{visitor_name, visitor_id, venue_id},{image_string}]
+     //window.alert(visitor_info[1].image_string)
 
    };
 

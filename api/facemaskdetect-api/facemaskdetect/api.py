@@ -11,7 +11,7 @@ from sqlalchemy import exc
 from functools import wraps
 from .models import db, User, Venue, Visitor, required_fields
 from .services.misc import pre_init_check, MissingModelFields, datetime_to_str, parse_datetime
-#from .services.fmaskdetect.detectimage import facemask_detect
+from .services.fmaskdetect.detectimage import facemask_detect
 import jwt
 
 api = Blueprint('api', __name__)
