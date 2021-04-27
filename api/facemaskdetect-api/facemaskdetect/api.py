@@ -161,7 +161,7 @@ def venue_checkin():
         db.session.add(visitor)
         db.session.commit()
         visitor.visitor_temp = str(visitor.visitor_temp)
-        return jsonify({'checkin': check_in, 'checkin_info' : visitor.columns_to_dict()}), 201
+        return jsonify({ 'checkin_info' : visitor.columns_to_dict()}), 201
 
     #except (MissingModelFields) as e:
        #return jsonify({ 'message': e.args }), 400

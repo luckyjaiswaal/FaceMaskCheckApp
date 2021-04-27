@@ -12,13 +12,22 @@ class VenueDashboard extends Component {
   constructor(props){
     super(props)
     this.state = {
-      visitor_name: "Test Name",
-      visitor_id: 99,
+      visitor_name: "",
+      visitor_id: "",
       venue_id: localStorage.getItem('venue_id'),
       image_string: "",
-      result: [],
       isLoading: false,
     }
+  }
+
+  handleChangeName = async event => {
+    const visitor_name = event.target.value;
+    this.setState({visitor_name})
+  }
+
+  handleChangeID = async event => {
+    const visitor_id = event.target.value;
+    this.setState({visitor_id})
   }
 
   setRef = webcam => {
@@ -30,8 +39,16 @@ class VenueDashboard extends Component {
      const {visitor_name, visitor_id, venue_id,image_string} = this.state
      const visitor_info = [{visitor_name, visitor_id, venue_id},{image_string}]
      api.checkIn({visitor_info}).then(res =>{
-       this.setState({result: res.data})
-       console.log(res.data)
+     //console.log(res.data)
+     var maskFound ;
+     if (res.data['checkin_info'].check_in === 0){
+       maskFound = "Mask not detected. Please try again."
+     }
+     else{
+       maskFound = "Mask was detected. Check in Successful."
+     }
+     document.getElementById("temp").value = res.data['checkin_info'].visitor_temp
+     document.getElementById("mask").value = maskFound
      })
 
    };
@@ -44,7 +61,7 @@ class VenueDashboard extends Component {
         };
     return (
       <div className="VenueDashboard row">
-        <div className="column" key = "column2">
+        <div className="column2" key = "column2">
           <div>
           <div className = "">
                 <div>
@@ -62,23 +79,25 @@ class VenueDashboard extends Component {
           </div>
         </div>
 
-        <div className = "column" key = "column3">
-        <div className="" key = "checkinName">
-          <label>Your Name</label>
-          <input className="form-control" placeholder="Enter your name"></input>
-        </div>
-        <div className="" key = "checkinID">
-          <label>Your ID</label>
-          <input className="form-control" placeholder="Enter your ID"></input>
-        </div>
-        <div className="" key = "checkinName">
-          <label>Temperature Detected</label>
-          <input className="form-control"></input>
-        </div>
-        <div className="" key = "checkinID">
-          <label>Mask Detected</label>
-          <input className="form-control"></input>
-        </div>
+        <div className = "column3" key = "column2">
+          <div className = "test7">
+          <div className="" key = "checkinName">
+            <label>Your Name</label>
+            <input className="form-control" placeholder="Enter your name" onChange={this.handleChangeName}></input>
+          </div>
+          <div className="" key = "checkinID">
+            <label>Your ID</label>
+            <input className="form-control" placeholder="Enter your ID" onChange={this.handleChangeID}></input>
+          </div>
+          <div className="" key = "checkinName">
+            <label>Temperature Detected</label>
+            <input readOnly id="temp" className="form-control"></input>
+          </div>
+          <div className="" key = "checkinID">
+            <label>Mask Detected</label>
+            <input readOnly id = "mask" className="form-control"></input>
+          </div>
+          </div>
         </div>
       </div>
     );
