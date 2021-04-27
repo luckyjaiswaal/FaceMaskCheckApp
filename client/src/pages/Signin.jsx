@@ -36,7 +36,8 @@ class Signin extends Component {
       await api.login({email, password}).then(res => {
         if(res.status === 200){
              this.setState({msg:'Succesfull Login!'})
-             this.props.history.push('/Signup')
+             localStorage.setItem('user_id', res.data.user.user_id)
+             this.props.history.push('/AdminDashboard')
         }
       }, error => {
         console.log(error)

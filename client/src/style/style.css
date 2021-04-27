@@ -14,6 +14,43 @@ body{
   color:  #3da2ff  !important;
   text-align: center;
 }
+.FooterPage{
+  left:0;
+  bottom:0;
+  right:0;
+
+}
+.test{
+  border-color: black;
+  font-family: helvetica;
+  font-weight: 800;
+  font-size: 22px ;
+}
+
+.column2 {
+  float: left;
+  width: 60%;
+  padding-bottom: 20px;
+  border: 10px solid #008080;
+}
+.column3 {
+  float: right;
+  width: 40%;
+  padding-bottom: 20px;
+  border: 10px solid #008080;
+}
+.test7{
+  padding-left: 20%;
+  padding-top: 5%;
+  text-align: left;
+  align-items: center;
+  max-width: 80%;
+}
+.venue{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
 
 .navbarMain {
   font-family: helvetica;
