@@ -33,6 +33,12 @@ setVenue (id){
   this.props.history.push('/venueDashboard')
 }
 
+setAnalytics (id){
+  localStorage.setItem('venue_id', id)
+  console.log("TESSSSSSSt")
+  console.log(id)
+  this.props.history.push('/Analytics')
+}
 renderVenues(){
   return this.state.venueData.map((venue, index) => {
     const {venue_name, venue_id, authority_name, venue_capacity} = venue
@@ -46,6 +52,7 @@ renderVenues(){
             {authority_name}
           </Card.Text>
           <Button  variant="primary" onClick={() => this.setVenue(venue_id)}  >Enter</Button>
+          <Button  variant="primary" onClick={() => this.setAnalytics(venue_id)}  >Analytics</Button>
         </Card.Body>
       </Card>
     )
