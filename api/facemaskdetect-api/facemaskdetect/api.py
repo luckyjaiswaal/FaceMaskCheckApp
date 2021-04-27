@@ -173,6 +173,31 @@ def venue_checkin():
         db.session.rollback()
         return jsonify({ 'message': e.args }), 500
 
+@api.route('venue/stats', methods=('POST',))
+def get_venue_stats():
+    """
+    Create new chat chatroom between two users
+    """
+    try:
+        data = request.get_json()
+        venue_stats = Visitor.query.filter_by(venue_id = data['venue_id']).all()
+        payload = []
+        for u in venue_stats:
+            dict_pa = u.columns_to_dict()
+            payload.append(dict_pa)
+
+
+        return jsonify({'venue_stats': payload}), 200
+    #except (MissingModelFields) as e:
+       #return jsonify({ 'message': e.args }), 400
+    except exc.IntegrityError as e:
+        print(e)
+        db.session.rollback()
+        return jsonify({ 'message': 'integrity errror' }), 409
+    except exc.SQLAlchemyError as e:
+        db.session.rollback()
+        return jsonify({ 'message': e.args }), 500
+
 
 # This is a decorator function which will be used to protect authentication-sensitive API endpoints
 def token_required(f):
