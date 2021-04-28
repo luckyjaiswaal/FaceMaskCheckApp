@@ -140,7 +140,7 @@ def venue_checkin():
 
         face_detect = facemask_detect(image_string['image_string'])
         print("face detect: " + str(face_detect[0]))
-        visitor_temp = 36.5
+        visitor_temp = 39
         #print("base64_string" + str(face_detect[1]))
 
         if (face_detect[0] and visitor_temp > 35 and visitor_temp <38):

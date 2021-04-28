@@ -42,10 +42,18 @@ class VenueDashboard extends Component {
      //console.log(res.data)
      var maskFound ;
      if (res.data['checkin_info'].check_in === 0){
-       maskFound = "Mask not detected. Please try again."
+      if(res.data['checkin_info'].temp_check === 0 && res.data['checkin_info'].facemask_check ===0){
+        maskFound = "Temp too high & Facemask not detected. Please ty again."
+      }
+      else if(res.data['checkin_info'].temp_check === 1 && res.data['checkin_info'].facemask_check ===0)
+        maskFound = "Temp normal but Facemask not detected. Please ty again." 
+
+      else if(res.data['checkin_info'].temp_check === 0 && res.data['checkin_info'].facemask_check ===1)
+        maskFound = "Facmask detected but Temp not within range. Please ty again."
+
      }
      else{
-       maskFound = "Mask was detected. Check in Successful."
+       maskFound = "Mask was detected and Temp within range. Check in Successful."
      }
      document.getElementById("temp").value = res.data['checkin_info'].visitor_temp
      document.getElementById("mask").value = maskFound
