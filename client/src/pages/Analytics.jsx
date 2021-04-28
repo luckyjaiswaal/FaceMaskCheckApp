@@ -32,6 +32,9 @@ class Analytics extends Component {
      //else{
        //maskFound = "Mask was detected. Check in Successful."
      //}
+     api.get_venue_stats({venue_id}).then(res =>{
+       console.log(res.data)
+     })
     
 
    };
