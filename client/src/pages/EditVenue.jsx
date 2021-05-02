@@ -7,6 +7,7 @@ import { Component } from "react";
 import Webcam from "react-webcam";
 
 //test comment 
+//test commit 2
 class VenueDashboard extends Component {
 
   constructor(props){
