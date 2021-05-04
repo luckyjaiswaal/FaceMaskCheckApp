@@ -52,14 +52,14 @@ def login():
     """
     Login for existing users
     """
-    
+
     data = request.get_json()
     user = User.authenticate(**data)
     user_send = user.to_dict()
 
     if not user:
         return jsonify({ 'message': 'Invalid credentials', 'authenticated': False }), 401
-    
+
     token = jwt.encode(
         {
         'exp': datetime.now() + timedelta(minutes=90),
@@ -96,7 +96,7 @@ def add_venue():
         db.session.rollback()
         return jsonify({ 'message': e.args }), 500
 
-@api.route('/venue/get', methods=('POST',))
+@api.route('venue/get', methods=('POST',))
 def get_venue_list():
     """
     Create new chat chatroom between two users
@@ -140,29 +140,54 @@ def venue_checkin():
 
         face_detect = facemask_detect(image_string['image_string'])
         print("face detect: " + str(face_detect[0]))
-        visitor_temp = 36.5
+        visitor_temp = 39
         #print("base64_string" + str(face_detect[1]))
-        
+
         if (face_detect[0] and visitor_temp > 35 and visitor_temp <38):
             check_in = 1
             temp_check = 1
-        
+
         else:
             check_in = 0
             if(visitor_temp > 35 and visitor_temp <38):
                 temp_check = 1
             else:
                 temp_check = 0
-        
-        
+
+
         visitor_data.update({'facemask_check' : face_detect[0], 'visitor_temp' : visitor_temp, 'temp_check' : temp_check, 'check_in' : check_in})
         print(visitor_data)
         visitor = Visitor(**visitor_data)
         db.session.add(visitor)
         db.session.commit()
         visitor.visitor_temp = str(visitor.visitor_temp)
-        return jsonify({'checkin': check_in, 'checkin_info' : visitor.columns_to_dict()}), 201
-    
+        return jsonify({ 'checkin_info' : visitor.columns_to_dict()}), 201
+
+    #except (MissingModelFields) as e:
+       #return jsonify({ 'message': e.args }), 400
+    except exc.IntegrityError as e:
+        print(e)
+        db.session.rollback()
+        return jsonify({ 'message': 'integrity errror' }), 409
+    except exc.SQLAlchemyError as e:
+        db.session.rollback()
+        return jsonify({ 'message': e.args }), 500
+
+@api.route('venue/stats', methods=('POST',))
+def get_venue_stats():
+    """
+    Create new chat chatroom between two users
+    """
+    try:
+        data = request.get_json()
+        venue_stats = Visitor.query.filter_by(venue_id = data['venue_id']).all()
+        payload = []
+        for u in venue_stats:
+            dict_pa = u.columns_to_dict()
+            payload.append(dict_pa)
+
+
+        return jsonify({'venue_stats': payload}), 200
     #except (MissingModelFields) as e:
        #return jsonify({ 'message': e.args }), 400
     except exc.IntegrityError as e:
