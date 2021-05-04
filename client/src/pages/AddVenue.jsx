@@ -22,27 +22,23 @@ class addNewVenue extends Component {
                     <div className="user-details">
                         <div className="input-box">
                             <span className= "details">Venue name</span>
-                            <i nput type="text" placeholder="Enter Venue name" required/>
+                            <input type="text" placeholder="Enter venue name" required/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Venue capacity</span>
-                            <input type="text" placeholder="Enter the venue capacity" required/>
+                            <input type="text" placeholder="Enter venue capacity" required/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Authority name</span>
-                            <input type="text" placeholder="Enter the authority name" required/>
+                            <input type="text" placeholder="Enter authority name" required/>
                         </div>
                         <div className="input-box">
-                            <span className= "details">Authority Contact number</span>
-                            <input type="text" placeholder="Enter the authority's contact number" required/>
+                            <span className= "details">Authority contact number</span>
+                            <input type="text" placeholder="Enter authority's contact number" required/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Authorisation code</span>
-                            <input type="text" placeholder="Enter the authorisation code" required/>
-                        </div>
-                        <div className="input-box">
-                            <span className= "details">Confirm Authorisation code</span>
-                            <input type="text" placeholder="Confirm authorisation code" required/>
+                            <input type="text" placeholder="Enter authorisation code" required/>
                         </div>
                     </div>
                     <div className="button">

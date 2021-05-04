@@ -1,3 +1,4 @@
+
 body{
   background-position: center;
   background-size: cover;
@@ -5,40 +6,40 @@ body{
   margin-top: 40px;
 }
 .venueContainer{
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
-  background:#fff;
+  background:#c3caca;
   margin:auto;
-  color:rgb(0, 0, 0);
-  padding: 10px 0px 10px 0px;
+  color:#008080;
+  padding: 25px 30px;
   text-align: center;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 5px;
 
 }
-.venueContainer.addNewVenue{
-  font-size: 25px;
+.addNewVenue{
+  font-size: 25px; 
   font-weight: 500;
   position: relative;
 }
 
-.venueContainer form.user-details{
+.user-details{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-form.user-details.input-box{
-  margin-bottom: 15px;
+.input-box{
+  margin-bottom: 20px;
   width: calc(100%/2 - 20px);
 }
 
-.user-details.input-box.details{
+.details{
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.user-details.input-box input{
+.input-box input{
   height: 45px;
   width: 100%;
   outline: none;
@@ -50,26 +51,31 @@ form.user-details.input-box{
   transition: all 0.3s ease;
 }
 
-form.button{
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #008080;
+}
+
+.button{
   height: 45px;
   margin: 45px 0;
 }
 
-form.button input{
+.button input{
   height: 100%;
   width: 100%;
   outline: none;
-  color: #fff;
+  color: #f9fcfc;
+  background: #008080 ;
   border: none;
   font-size: 18px;
   font-weight: 500;
+  border-radius: 5px;
   letter-spacing: 1px;
-  background: linear-gradient(rgb(23, 23, 247));
-
 }
 
-form.button input:hover{
-  background: linear-gradient(rgb(23, 23, 247));
+.button input:hover{
+  background: #468f8f;
 }
 
 .bx{
