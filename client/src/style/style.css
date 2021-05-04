@@ -1,78 +1,6 @@
 body{
-  background-image: url(uts.png);
-  background-position: center;
-  background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 40px;
-}
-.venueContainer{
-  max-width: 800px;
-  width: 100%;
-  background:#fff;
-  margin:auto;
-  color:rgb(0, 0, 0);
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-  border-radius: 15px 15px 0px 0px;   
-  
-}
-.venueContainer.addNewVenue{
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
-}
 
-.venueContainer form.user-details{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
-
-form.user-details.input-box{
-  margin-bottom: 15px;
-  width: calc(100%/2 - 20px);
-}
-
-.user-details.input-box.details{
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.user-details.input-box input{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
-}
-
-form.button{
-  height: 45px;
-  margin: 45px 0;
-}
-
-form.button input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  background: linear-gradient(rgb(23, 23, 247));
-  
-}
-
-form.button input:hover{
-  background: linear-gradient(rgb(23, 23, 247));
-}
-  
 .bx{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-top: 3%;
@@ -257,6 +185,6 @@ form.button input:hover{
 }
 
 
-.collpase .navbar-collapse Link{ 
+.collpase .navbar-collapse Link{
   background-color: green;color: #008080;
 }
