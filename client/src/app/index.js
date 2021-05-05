@@ -8,6 +8,7 @@ import Signup  from '../pages/Signup'
 import AdminDashboard from '../pages/AdminDashboard'
 import VenueDashboard from '../pages/VenueDashboard'
 import Analytics from '../pages/Analytics'
+import AddVenue from '../pages/AddVenue'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -24,6 +25,7 @@ function App() {
                 <Route path= "/AdminDashboard" exact component={AdminDashboard} />
                 <Route path= "/VenueDashboard" exact component={VenueDashboard} />
                 <Route path= "/Analytics" exact component={Analytics} />
+                <Route path= "/AddVenue" exact component={AddVenue} />
               </Switch>
           <FooterPage/>
         </Router>

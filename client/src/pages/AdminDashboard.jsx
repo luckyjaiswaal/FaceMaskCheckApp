@@ -28,6 +28,12 @@ componentDidMount(){
   })
 }
 
+
+
+handleAddVenueBtn = async event => {
+  this.props.history.push('/AddVenue')
+}
+
 setVenue (id){
   localStorage.setItem('venue_id', id)
   this.props.history.push('/venueDashboard')
@@ -64,7 +70,8 @@ renderVenues(){
       <div className="AdminDashboard">
         <div className="container">
           <h1 >Admin Dashboard</h1>
-            <div className ="test"><button className="" style={{ backgroundColor:'#008080', width:'200px',height:'40px', color:'white', border:'none' }}>
+            <div className ="test">
+            <button  onClick={this.handleAddVenueBtn} className="" style={{ backgroundColor:'#008080', width:'200px',height:'40px', color:'white', border:'none'  }}>
               Add Venue
             </button></div>
           <div>
