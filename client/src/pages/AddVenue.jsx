@@ -7,12 +7,45 @@ import { Link } from 'react-router-dom'
 import { Component } from "react";
 
 class addNewVenue extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            isLoading: false,
-        }
+  constructor(props){
+    super(props)
+    this.state = {
+       user_id: localStorage.getItem('user_id'),
+       venue_name: "" ,
+       venue_capacity: "",
+       authority_name: "",
+       authority_contact: "",
+       auth_code : "",
+       isLoading: false,
     }
+  }
+
+  handleChangeVenueName = async event => {
+    const venue_name = event.target.value;
+    this.setState({venue_name})
+  }
+  handleChangeVenueCapacity = async event => {
+    const venue_capacity = event.target.value;
+    this.setState({venue_capacity})
+  }
+  handleChangeAuthorityName = async event => {
+    const authority_name = event.target.value;
+    this.setState({authority_name})
+  }
+  handleChangeAuthorityContact = async event => {
+    const authority_contact = event.target.value;
+    this.setState({authority_contact})
+  }
+  handleChangeAuthorityCode = async event => {
+    const auth_code = event.target.value;
+    this.setState({auth_code})
+  }
+  handleCreateVenue = async event => {
+    event.preventDefault();
+    await api.addVenue({})
+  }
+
+
 
     render(){
         return (
