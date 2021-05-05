@@ -42,10 +42,18 @@ class addNewVenue extends Component {
   }
   handleCreateVenue = async event => {
     event.preventDefault();
-    await api.addVenue({})
+    const {user_id, venue_name, venue_capacity, authority_name, authority_contact, auth_code} = this.state
+
+    await api.addVenue({user_id, venue_name, venue_capacity, authority_name, authority_contact, auth_code}).then(res =>{
+      if(res.status === 201){
+        window.alert("Venue Added Successfully")
+        this.props.history.push('/AdminDashboard')
+      }
+    },error => {
+      console.log(error)
+      window.alert("Venue could not be added!")
+    })
   }
-
-
 
     render(){
         return (
@@ -55,27 +63,27 @@ class addNewVenue extends Component {
                     <div className="user-details">
                         <div className="input-box">
                             <span className= "details">Venue name</span>
-                            <input type="text" placeholder="Enter venue name" required/>
+                            <input type="text" placeholder="Enter venue name" required onChange={this.handleChangeVenueName}/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Venue capacity</span>
-                            <input type="text" placeholder="Enter venue capacity" required/>
+                            <input type="text" placeholder="Enter venue capacity" required onChange={this.handleChangeVenueCapacity}/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Authority name</span>
-                            <input type="text" placeholder="Enter authority name" required/>
+                            <input type="text" placeholder="Enter authority name" required onChange={this.handleChangeAuthorityName}/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Authority contact number</span>
-                            <input type="text" placeholder="Enter authority's contact number" required/>
+                            <input type="text" placeholder="Enter authority's contact number" required onChange={this.handleChangeAuthorityContact}/>
                         </div>
                         <div className="input-box">
                             <span className= "details">Authorisation code</span>
-                            <input type="text" placeholder="Enter authorisation code" required/>
+                            <input type="text" placeholder="Enter authorisation code" required onChange={this.handleChangeAuthorityCode}/>
                         </div>
                     </div>
                     <div className="button">
-                        <input type="submit" value="Create venue"/>
+                        <input type="submit" value="Create venue" onClick={this.handleCreateVenue}/>
                     </div>
                 </form>
             </div>
