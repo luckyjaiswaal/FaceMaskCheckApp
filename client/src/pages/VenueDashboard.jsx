@@ -100,7 +100,7 @@ class VenueDashboard extends Component {
     function updateCounter() {
       if (number == 0) {
         clearInterval(count);
-        capture();
+        //capture();
       }
       else {
         number--;
