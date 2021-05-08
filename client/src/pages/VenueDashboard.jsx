@@ -36,7 +36,8 @@ class VenueDashboard extends Component {
       document.getElementById("qr").style.display = "none";
       document.getElementById("camVideo").style.display = "inline";
       document.getElementById('label').innerHTML = "FACE SCAN IN"
-      this.counter();
+      this.counter(this.capture);
+
     }
   };
 
@@ -93,17 +94,17 @@ class VenueDashboard extends Component {
     });
   };
 
-  counter = () => {
+  counter = (callback) => {
     var number = 5
     const element = document.getElementById("label");
     const count = setInterval(updateCounter, 1000);
     function updateCounter() {
       if (number == 0) {
         clearInterval(count);
-        //capture();
+        callback();
       }
       else {
-        number--;
+        --number;
         console.log(number.toString())
         document.getElementById("countLabel").value = number.toString();
       }
