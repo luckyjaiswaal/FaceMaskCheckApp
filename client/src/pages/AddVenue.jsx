@@ -57,7 +57,7 @@ class addNewVenue extends Component {
 
     render(){
         return (
-            <div className= "venueContainer">
+            <div className= "venueContainer" style={{padding: 40, marginTop: 40, marginBottom: 40}}>
                 <div className= "addNewVenue">Add New Venue</div>
                 <form action="#">
                     <div className="user-details">
