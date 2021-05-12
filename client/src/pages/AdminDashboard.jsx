@@ -7,6 +7,12 @@ import { Link } from 'react-router-dom'
 import { Component } from "react";
 import {Card } from "react-bootstrap";
 import { Button} from 'react-bootstrap';
+import Paper from "@material-ui/core/Paper";
+import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Container, Row, Col } from "reactstrap";
+
 
 
 class AdminDashboard extends Component {
