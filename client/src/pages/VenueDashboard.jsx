@@ -130,12 +130,12 @@ class VenueDashboard extends Component {
             </Paper>
           </Grid>
           {/* temp grid */}
-          <Grid item xs={6} style={{ padding: 20 }}>
+          <Grid item xs={6} style={{ padding: 40, }}>
             <Paper style={{ textAlign: "center" }}>
               <text>Your temp is</text>
             </Paper>
           </Grid>
-          <Grid item xs={6} style={{ padding: 20 }}>
+          <Grid item xs={6} style={{ padding: 40 }}>
             <Paper style={{ textAlign: "center", padding: 40 }}>
               <div className="test7">
                 <div className="" key="checkinName">
