@@ -1,0 +1,224 @@
+{
+    "venue_stats": [
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 1,
+            "venue_id": 1,
+            "visit_time": "Sat, 24 Apr 2021 15:33:13 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 2,
+            "venue_id": 1,
+            "visit_time": "Sat, 24 Apr 2021 15:36:13 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 3,
+            "venue_id": 1,
+            "visit_time": "Sat, 24 Apr 2021 15:40:05 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 5,
+            "venue_id": 1,
+            "visit_time": "Sat, 24 Apr 2021 15:49:55 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 6,
+            "venue_id": 1,
+            "visit_time": "Sat, 24 Apr 2021 15:57:09 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 7,
+            "venue_id": 1,
+            "visit_time": "Sun, 25 Apr 2021 08:34:56 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 8,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 05:06:04 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 9,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 05:52:39 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 10,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 05:52:50 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 11,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:04:03 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyush Vathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 13,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:04:30 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 22,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:27:15 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 24,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:28:43 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 26,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:30:36 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 45,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:53:55 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 1,
+            "facemask_check": 1,
+            "temp_check": 1,
+            "v_id": 49,
+            "venue_id": 1,
+            "visit_time": "Mon, 26 Apr 2021 06:58:05 GMT",
+            "visitor_id": 13047272,
+            "visitor_name": "Piyush Vats",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 64,
+            "venue_id": 1,
+            "visit_time": "Tue, 27 Apr 2021 02:34:12 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 112,
+            "venue_id": 1,
+            "visit_time": "Tue, 27 Apr 2021 03:12:17 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 1,
+            "v_id": 132,
+            "venue_id": 1,
+            "visit_time": "Tue, 27 Apr 2021 03:23:07 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 37
+        },
+        {
+            "check_in": 0,
+            "facemask_check": 0,
+            "temp_check": 0,
+            "v_id": 461,
+            "venue_id": 1,
+            "visit_time": "Sun, 02 May 2021 13:07:15 GMT",
+            "visitor_id": 2147483647,
+            "visitor_name": "Piyrgushathtts",
+            "visitor_temp": 39
+        }
+    ]
+}
