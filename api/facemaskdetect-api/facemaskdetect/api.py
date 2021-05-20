@@ -230,4 +230,47 @@ def token_required(f):
             print(e)
             return jsonify(invalid_msg), 401
 
+@api.route('venue/contact-trace', methods=('POST',))
+def get_venue_contact_trace():
+    """
+    Create new chat chatroom between two users
+    """
+    try:
+        data = request.get_json()
+        visitors = Visitor.query.filter_by(visitor_id = data['visitor_id']).all()
+        payload = []
+        venues = []
+        tracingTime = datetime.now() + timedelta(days=-20)
+        for u in visitors:
+           
+            dict_pa = u.columns_to_dict()
+            visitTime = dict_pa['visit_time']
+            visitTime = u.visit_time
+            if(visitTime>=tracingTime):
+                venue_id = dict_pa['venue_id']
+                if(venue_id not in venues):
+                    venues.append(venue_id)
+        for v in venues:
+            contactVisitors=Visitor.query.filter_by(venue_id = v).all()
+            for c in contactVisitors:
+                contactVisitor = c.columns_to_dict()
+                contactVisitTime = contactVisitor['visit_time']
+                if(contactVisitTime>=tracingTime):
+                    print(contactVisitor)
+                    if(contactVisitor not in payload):
+                        contactVisitor.pop('visitor_temp')
+                        payload.append(contactVisitor)
+        return jsonify({'contact_trace': payload}), 200
+    except (MissingModelFields) as e:
+       return jsonify({ 'message': e.args }), 400
+    except exc.IntegrityError as e:
+        print(e)
+        db.session.rollback()
+        return jsonify({ 'message': 'integrity errror' }), 409
+    except exc.SQLAlchemyError as e:
+        db.session.rollback()
+        return jsonify({ 'message': e.args }), 500
+
+            
+
     return _verify
